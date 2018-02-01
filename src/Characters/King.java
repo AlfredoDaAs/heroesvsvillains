@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Models.Characters;
+package Characters;
 
 /**
  *
- * @author alfre
+ * @author User
  */
-public class Ghoul {
+public class King {
     
 }
