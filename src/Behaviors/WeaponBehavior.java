@@ -9,6 +9,6 @@ package Behaviors;
  *
  * @author alfre
  */
-public class WeaponBehavior {
-    
+public interface WeaponBehavior {
+    public abstract void use();
 }

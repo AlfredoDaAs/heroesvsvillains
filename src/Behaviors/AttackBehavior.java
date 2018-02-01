@@ -9,6 +9,6 @@ package Behaviors;
  *
  * @author alfre
  */
-public class AttackBehavior {
-    
+public interface AttackBehavior {
+    public abstract boolean attack();
 }
