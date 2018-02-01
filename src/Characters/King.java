@@ -9,6 +9,14 @@ package Characters;
  *
  * @author User
  */
-public class King {
+public class King extends Character{
+    
+    public King(char value) {
+        super(value);
+    }
+    
+    public void display(){
+        
+    }
     
 }
