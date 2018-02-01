@@ -5,11 +5,16 @@
  */
 package Models;
 
+import Behaviors.*;
+
 /**
  *
  * @author Bruno
  */
-public class Character {
+public abstract class Character {
     protected boolean alive;
+    public AttackBehavior attackBehavior;
+    public WeaponBehavior weaponBehavior;
     
+    public abstract void display();
 }
