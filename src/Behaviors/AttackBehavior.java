@@ -5,10 +5,12 @@
  */
 package Behaviors;
 
+import Models.CharacterModel;
+
 /**
  *
  * @author alfre
  */
 public interface AttackBehavior {
-    public abstract boolean attack();
+    public abstract boolean attack(CharacterModel target);
 }

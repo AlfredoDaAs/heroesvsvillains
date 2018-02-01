@@ -18,7 +18,7 @@ public abstract class CharacterModel {
     
     public abstract void display();
     
-    public void performAttack(){
-        attackBehavior.attack();
+    public void performAttack(CharacterModel target){
+        attackBehavior.attack(target);
     }
 }
