@@ -11,10 +11,14 @@ import Behaviors.*;
  *
  * @author Bruno
  */
-public abstract class Character {
+public abstract class CharacterModel {
     protected boolean alive;
     public AttackBehavior attackBehavior;
     public WeaponBehavior weaponBehavior;
     
     public abstract void display();
+    
+    public void performAttack(){
+        attackBehavior.attack();
+    }
 }
