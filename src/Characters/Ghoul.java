@@ -5,10 +5,17 @@
  */
 package Characters;
 
+import Models.CharacterModel;
+
 /**
  *
  * @author alfre
  */
-public class Ghoul {
+public class Ghoul extends CharacterModel{
+
+    @Override
+    public void display() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

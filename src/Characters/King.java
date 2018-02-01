@@ -5,16 +5,18 @@
  */
 package Characters;
 
+import Models.CharacterModel;
+
 /**
  *
  * @author User
  */
-public class King extends Character{
+public class King extends CharacterModel{
     
-    public King(char value) {
-        super(value);
+    public King() {
     }
     
+    @Override
     public void display(){
         
     }
