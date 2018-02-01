@@ -5,6 +5,8 @@
  */
 package Characters;
 
+import Behaviors.AttackBehavior;
+import Behaviors.WeaponBehavior;
 import Models.CharacterModel;
 
 /**
@@ -13,9 +15,13 @@ import Models.CharacterModel;
  */
 public class Troll extends CharacterModel{
 
+    public Troll(AttackBehavior attackBehavior, WeaponBehavior weaponBehavior,boolean isHero) {
+        super(attackBehavior, weaponBehavior,isHero);
+    }
+
     @Override
-    public void display() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String name() {
+        return "Troll";
     }
     
 }

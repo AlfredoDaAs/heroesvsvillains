@@ -12,5 +12,5 @@ import Models.CharacterModel;
  * @author alfre
  */
 public interface AttackBehavior {
-    public abstract boolean attack(CharacterModel target);
+    public boolean attack(CharacterModel target, WeaponBehavior weapon);
 }

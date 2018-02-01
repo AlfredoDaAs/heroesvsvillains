@@ -11,11 +11,11 @@ import Behaviors.WeaponBehavior;
  *
  * @author User
  */
-public class SwordWeapon implements WeaponBehavior{
+public class Knife implements WeaponBehavior{
 
     @Override
     public void use() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.print(" *Stabs target*");
     }
     
 }

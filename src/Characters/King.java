@@ -5,6 +5,8 @@
  */
 package Characters;
 
+import Behaviors.AttackBehavior;
+import Behaviors.WeaponBehavior;
 import Models.CharacterModel;
 
 /**
@@ -12,13 +14,13 @@ import Models.CharacterModel;
  * @author User
  */
 public class King extends CharacterModel{
-    
-    public King() {
+
+    public King(AttackBehavior attackBehavior, WeaponBehavior weaponBehavior,boolean isHero) {
+        super(attackBehavior, weaponBehavior,isHero);
     }
     
     @Override
-    public void display(){
-        
+    public String name() {
+        return "King";
     }
-    
 }
