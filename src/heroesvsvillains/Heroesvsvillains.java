@@ -149,13 +149,13 @@ public class Heroesvsvillains {
     public static CharacterModel getHeroType(int index){
         switch(index){
             case 0:
-                return new King(new KingAttack(), getWeaponBehavior(new Random().nextInt(3)),true);
+                return new King(new KingAttack(), getWeaponBehavior(new Random().nextInt(4)),true);
             case 1:
-                return new Queen(new QueenAttack(), getWeaponBehavior(new Random().nextInt(3)),true);
+                return new Queen(new QueenAttack(), getWeaponBehavior(new Random().nextInt(4)),true);
             case 2:
-                return new Bishop(new BishopAttack(), getWeaponBehavior(new Random().nextInt(3)),true);
+                return new Bishop(new BishopAttack(), getWeaponBehavior(new Random().nextInt(4)),true);
             case 3:
-                return new Knight(new KnightAttack(), getWeaponBehavior(new Random().nextInt(3)),true);
+                return new Knight(new KnightAttack(), getWeaponBehavior(new Random().nextInt(4)),true);
         }
         return null;
     }
@@ -163,13 +163,13 @@ public class Heroesvsvillains {
     public static CharacterModel getVillainType(int index){
         switch(index){
             case 0:
-                return new Lilith(new LilithAttack(), getWeaponBehavior(new Random().nextInt(3)),false);
+                return new Lilith(new LilithAttack(), getWeaponBehavior(new Random().nextInt(4)),false);
             case 1:
-                return new Wizard(new WizardAttack(), getWeaponBehavior(new Random().nextInt(3)),false);
+                return new Wizard(new WizardAttack(), getWeaponBehavior(new Random().nextInt(4)),false);
             case 2:
-                return new Troll(new TrollAttack(), getWeaponBehavior(new Random().nextInt(3)),false);
+                return new Troll(new TrollAttack(), getWeaponBehavior(new Random().nextInt(4)),false);
             case 3:
-                return new Ghoul(new GhoulAttack(), getWeaponBehavior(new Random().nextInt(3)),false);
+                return new Ghoul(new GhoulAttack(), getWeaponBehavior(new Random().nextInt(4)),false);
         }
         return null;
     }
