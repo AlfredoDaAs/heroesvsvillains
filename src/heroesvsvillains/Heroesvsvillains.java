@@ -25,8 +25,8 @@ public class Heroesvsvillains {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        //int rounds = Integer.parseInt(args[0]);
-        int rounds = 3;
+        int rounds = Integer.parseInt(args[0]);
+        
         CharacterModel[] Heroes = new CharacterModel[numCharacters];
         CharacterModel[] Villains = new CharacterModel[numCharacters];
         int currentCharacters = numCharacters;
