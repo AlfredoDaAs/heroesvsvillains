@@ -106,24 +106,24 @@ public class Heroesvsvillains {
     
     static boolean isGameOver(CharacterModel[] heroes,CharacterModel[] villains,int round, int maxRounds){
         if(round == maxRounds - 1){
-            for(int x = 0;x < heroes.length;x++){
-                if((heroes[x] instanceof King) && heroes[x].isAlive()){
+            for (CharacterModel heroe : heroes) {
+                if ((heroe instanceof King) && heroe.isAlive()) {
                     System.out.println();
                     System.out.println("The King survived! Heros win!");
                     return true;
                 }
             }
         }
-        for(int x = 0;x < heroes.length;x++){
-            if((heroes[x] instanceof King) && !heroes[x].isAlive()){
+        for (CharacterModel heroe : heroes) {
+            if ((heroe instanceof King) && !heroe.isAlive()) {
                 System.out.println();
                 System.out.println("The King is dead! Villains win...");
                 return true;
             }
         }
         
-        for(int x = 0;x < villains.length;x++){
-            if((villains[x] instanceof Lilith) && !villains[x].isAlive()){
+        for (CharacterModel villain : villains) {
+            if ((villain instanceof Lilith) && !villain.isAlive()) {
                 System.out.println();
                 System.out.println("Lilith is dead! Heroes win!");
                 return true;
