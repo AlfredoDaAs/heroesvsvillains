@@ -5,10 +5,12 @@
  */
 package OPInterfaces;
 
+import Models.CharacterModel;
+
 /**
  *
  * @author User
  */
 public interface Observer {
-    
+    public void update(CharacterModel looser);
 }

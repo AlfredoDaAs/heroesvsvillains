@@ -6,16 +6,18 @@
 package Models;
 
 import Behaviors.*;
+import OPInterfaces.Observer;
 
 /**
  *
  * @author Bruno
  */
-public abstract class CharacterModel {
+public abstract class CharacterModel implements Observer {
     protected boolean alive;
     protected boolean hero;
     public AttackBehavior attackBehavior;
     public WeaponBehavior weaponBehavior;
+    public CharacterModel oracleMessage;
 
     public CharacterModel(AttackBehavior attackBehavior, WeaponBehavior weaponBehavior,boolean isHero) {
         this.attackBehavior = attackBehavior;
@@ -27,7 +29,12 @@ public abstract class CharacterModel {
     public abstract String name();
     
     public boolean performAttack(CharacterModel target){
-        return attackBehavior.attack(target,this.weaponBehavior);
+        boolean attackResult = false;
+        attackResult = attackBehavior.attack(target,this.weaponBehavior);
+        if(oracleMessage != null && this.getClass() == oracleMessage.getClass()){
+            attackResult =  false;
+        }
+        return attackResult;
     }
 
     public boolean isAlive() {
@@ -60,5 +67,10 @@ public abstract class CharacterModel {
 
     public void setHero(boolean hero) {
         this.hero = hero;
+    }
+    
+    @Override
+    public void update(CharacterModel looser) {
+        this.oracleMessage = looser;
     }
 }

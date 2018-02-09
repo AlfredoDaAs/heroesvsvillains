@@ -10,6 +10,10 @@ import Behaviors.WeaponBehavior;
 import Characters.*;
 import Weapons.*;
 import Models.CharacterModel;
+import OPInterfaces.Subject;
+import Subjects.*;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 /**
@@ -27,21 +31,36 @@ public class Heroesvsvillains {
         // TODO code application logic here
         int rounds = Integer.parseInt(args[0]);
         
-        CharacterModel[] Heroes = new CharacterModel[numCharacters];
-        CharacterModel[] Villains = new CharacterModel[numCharacters];
+        ArrayList<CharacterModel> Heroes = new ArrayList<CharacterModel>();
+        ArrayList<CharacterModel> Villains = new ArrayList<CharacterModel>();
+        Pythia Pythia = new Pythia();
+        Rhea Rhea = new Rhea();
+        
         int currentCharacters = numCharacters;
         
         if(rounds > 0 && rounds < 9){
             for(int x = 0;x < numCharacters; x++){
-                Heroes[x] = getHeroType(x);
-                Villains[x] = getVillainType(x);
+                Heroes.add(getHeroType(x));
+                Villains.add(getVillainType(x));
             }
-            shuffleArray(Heroes);
-            shuffleArray(Villains);
+            
+            for(CharacterModel heroe : Heroes){
+                Rhea.registerObserver(heroe);
+            }
+            
+            for(CharacterModel villain : Villains){
+                Pythia.registerObserver(villain);
+            }
+            
+            Collections.shuffle(Heroes);
+            Collections.shuffle(Villains);
             
             for(int round = 0; round < rounds; round ++){
                 System.out.println();
                 System.out.println("Round " + (round + 1) + ":");
+                
+                Pythia.setLoser(Villains);
+                Rhea.setLoser(Heroes);
                 
                 if(deadHeroes > deadVillains)
                     currentCharacters = numCharacters - deadHeroes;
@@ -55,38 +74,36 @@ public class Heroesvsvillains {
                     boolean currentVillainState = true;
                     
                     System.out.println();
-                    if(Villains[x].isAlive() && Heroes[x].isAlive()){
+                    if(Villains.get(x).isAlive() && Heroes.get(x).isAlive()){
                         System.out.println();
-                        System.out.println(Heroes[x].name() + " vs " + Villains[x].name());
+                        System.out.println(Heroes.get(x).name() + " vs " + Villains.get(x).name());
                     }
                     System.out.println();
-                    if(Heroes[x].isAlive()){
-                        System.out.print(Heroes[x].name());
-                        currentHeroState = Heroes[x].performAttack(Villains[x]);
+                    if(Heroes.get(x).isAlive()){
+                        System.out.print(Heroes.get(x).name());
+                        currentHeroState = Heroes.get(x).performAttack(Villains.get(x));
                         if(!currentHeroState){
                             deadHeroes++;
                         }
                     }
                     System.out.println();
-                    if(Villains[x].isAlive()){
-                        System.out.print(Villains[x].name());
-                        currentVillainState = Villains[x].performAttack(Heroes[x]);
+                    if(Villains.get(x).isAlive()){
+                        System.out.print(Villains.get(x).name());
+                        currentVillainState = Villains.get(x).performAttack(Heroes.get(x));
                         if(!currentVillainState){
                             deadVillains++;
                         }
                     }
-                    Heroes[x].setAlive(currentHeroState);
-                    Villains[x].setAlive(currentVillainState);
+                    Heroes.get(x).setAlive(currentHeroState);
+                    Villains.get(x).setAlive(currentVillainState);
                     
                     if(isGameOver(Heroes,Villains,round,rounds)){
                         x = numCharacters;
                         round = rounds;
                     }
                 }
-                Heroes = throwBodies(Heroes,numCharacters - deadHeroes);
-                Villains = throwBodies(Villains,numCharacters - deadVillains);
-                shuffleArray(Heroes);
-                shuffleArray(Villains);
+                Heroes = throwBodies(Heroes);
+                Villains = throwBodies(Villains);
             }
         }
         else{
@@ -94,18 +111,17 @@ public class Heroesvsvillains {
         }
     }
     
-    static CharacterModel[] throwBodies(CharacterModel[] characters,int newSize){
-        CharacterModel[] newArray = new CharacterModel[newSize];
-        for(int x = 0,y = 0;x<characters.length;x++){
-            if(characters[x].isAlive()){
-                newArray[y] = characters[x];
-                y++;
+    static ArrayList<CharacterModel> throwBodies(ArrayList<CharacterModel> characters){
+        ArrayList<CharacterModel> newFrontline = new ArrayList<CharacterModel>();
+        for(CharacterModel character: characters){
+            if(character.isAlive()){
+                newFrontline.add(character);
             }
         }
-        return newArray;
+        return newFrontline;
     }
     
-    static boolean isGameOver(CharacterModel[] heroes,CharacterModel[] villains,int round, int maxRounds){
+    static boolean isGameOver(ArrayList<CharacterModel> heroes,ArrayList<CharacterModel> villains,int round, int maxRounds){
         if(round == maxRounds - 1){
             for (CharacterModel heroe : heroes) {
                 if ((heroe instanceof King) && heroe.isAlive()) {
@@ -132,18 +148,6 @@ public class Heroesvsvillains {
         }
             
         return false;
-    }
-    
-    static void shuffleArray(CharacterModel[] array)
-    {
-        Random rnd = new Random();
-        for (int i = array.length - 1; i > 0; i--)
-        {
-            int index = rnd.nextInt(i + 1);
-            CharacterModel aux = array[index];
-            array[index] = array[i];
-            array[i] = aux;
-        }
     }
     
     public static CharacterModel getHeroType(int index){
