@@ -11,11 +11,20 @@ import Behaviors.WeaponBehavior;
  *
  * @author User
  */
-public class Knife implements WeaponBehavior{
+public class Knife extends WeaponDecorator implements WeaponBehavior{
+    
+    public Knife(){
+        super(1);
+        this.WeaponPoints = 1;
+    }
 
+    public Knife(WeaponDecorator wrapper) {
+        super(wrapper,1);
+    }
     @Override
     public void use() {
-        System.out.print(" *Stabs target*");
+        super.use();
+        System.out.print(" *Stabs target* - " + this.WeaponPoints);
     }
     
 }

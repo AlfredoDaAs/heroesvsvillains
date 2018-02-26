@@ -9,6 +9,8 @@ import Behaviors.AttackBehavior;
 import Behaviors.WeaponBehavior;
 import Characters.*;
 import Models.CharacterModel;
+import Weapons.WeaponDecorator;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,17 +19,17 @@ import Models.CharacterModel;
 public class WizardAttack implements AttackBehavior{
 
     @Override
-    public boolean attack(CharacterModel target, WeaponBehavior weapon) {
+    public boolean attack(CharacterModel target, WeaponDecorator weapons) {
         if(!target.isAlive())
             return true;
         if(target.isHero()){
-            weapon.use();
-            return !(target instanceof Queen);
+            System.out.print(" with " + weapons.getPoints() + " attack points... ");
+            weapons.use();
+            return weapons.getPoints() >= target.weapons.getPoints();
         }
         else{
             System.out.println("I wont attack an ally...");
             return true;
         }
     }
-    
 }

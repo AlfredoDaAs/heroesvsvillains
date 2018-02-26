@@ -18,17 +18,13 @@ import Weapons.*;
 public class KnightAttack implements AttackBehavior{
 
     @Override
-    public boolean attack(CharacterModel target, WeaponBehavior weapon) {
+    public boolean attack(CharacterModel target, WeaponDecorator weapons) {
         if(!target.isAlive())
             return true;
         if(target.isVillain()){
-            weapon.use();
-            if((target instanceof Troll && !(weapon instanceof Axe)) || target instanceof Lilith || target instanceof Wizard){
-                return false;
-            }
-            else{
-                return true;
-            }
+            System.out.print(" with " + weapons.getPoints() + " attack points... ");
+            weapons.use();
+            return weapons.getPoints() >= target.weapons.getPoints();
         }
         else{
             System.out.println("I wont attack an ally...");

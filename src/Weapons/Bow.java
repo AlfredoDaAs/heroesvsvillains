@@ -11,11 +11,20 @@ import Behaviors.WeaponBehavior;
  *
  * @author User
  */
-public class Bow implements WeaponBehavior{
+public class Bow extends WeaponDecorator implements WeaponBehavior{
+    
+    public Bow(){
+        super(3);
+    }
+
+    public Bow(WeaponDecorator wrapper) {
+        super(wrapper,3);
+    }
 
     @Override
     public void use() {
-        System.out.print(" *Shoots arrow*");
+        super.use();
+        System.out.print(" *Shoots arrow* - " + this.WeaponPoints);
     }
     
 }

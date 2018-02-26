@@ -6,11 +6,9 @@
 package heroesvsvillains;
 
 import Attacks.*;
-import Behaviors.WeaponBehavior;
 import Characters.*;
 import Weapons.*;
 import Models.CharacterModel;
-import OPInterfaces.Subject;
 import Subjects.*;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,7 +19,7 @@ import java.util.Random;
  * @author alfre
  */
 public class Heroesvsvillains {
-    private static int numCharacters = 4;
+    private static int numCharacters = 5;
     private static int deadHeroes = 0;
     private static int deadVillains = 0;
     /**
@@ -59,8 +57,8 @@ public class Heroesvsvillains {
                 System.out.println();
                 System.out.println("Round " + (round + 1) + ":");
                 
-                Pythia.setLoser(Villains);
-                Rhea.setLoser(Heroes);
+                //Pythia.setLoser(Villains);
+                //Rhea.setLoser(Heroes);
                 
                 if(deadHeroes > deadVillains)
                     currentCharacters = numCharacters - deadHeroes;
@@ -153,13 +151,15 @@ public class Heroesvsvillains {
     public static CharacterModel getHeroType(int index){
         switch(index){
             case 0:
-                return new King(new KingAttack(), getWeaponBehavior(new Random().nextInt(4)),true);
+                return new King(new KingAttack(), getWeapons(),true);
             case 1:
-                return new Queen(new QueenAttack(), getWeaponBehavior(new Random().nextInt(4)),true);
+                return new Queen(new QueenAttack(), getWeapons(),true);
             case 2:
-                return new Bishop(new BishopAttack(), getWeaponBehavior(new Random().nextInt(4)),true);
+                return new Bishop(new BishopAttack(), getWeapons(),true);
             case 3:
-                return new Knight(new KnightAttack(), getWeaponBehavior(new Random().nextInt(4)),true);
+                return new Knight(new KnightAttack(), getWeapons(),true);
+            case 4:
+                return new Warrior(new WarriorAttack(), getWeapons(),true);
         }
         return null;
     }
@@ -167,18 +167,46 @@ public class Heroesvsvillains {
     public static CharacterModel getVillainType(int index){
         switch(index){
             case 0:
-                return new Lilith(new LilithAttack(), getWeaponBehavior(new Random().nextInt(4)),false);
+                return new Lilith(new LilithAttack(), getWeapons(),false);
             case 1:
-                return new Wizard(new WizardAttack(), getWeaponBehavior(new Random().nextInt(4)),false);
+                return new Wizard(new WizardAttack(), getWeapons(),false);
             case 2:
-                return new Troll(new TrollAttack(), getWeaponBehavior(new Random().nextInt(4)),false);
+                return new Troll(new TrollAttack(), getWeapons(),false);
             case 3:
-                return new Ghoul(new GhoulAttack(), getWeaponBehavior(new Random().nextInt(4)),false);
+                return new Ghoul(new GhoulAttack(), getWeapons(),false);
+            case 4:
+                return new Spectro(new SpectroAttack(), getWeapons(),false);
         }
         return null;
     }
     
-    public static WeaponBehavior getWeaponBehavior(int index){
+    public static WeaponDecorator getWeapons(){
+        WeaponDecorator weapons = getWeapon(new Random().nextInt(5));
+        
+        weapons = getWeapon(new Random().nextInt(5),weapons);
+        
+        weapons = getWeapon(new Random().nextInt(5),weapons);
+        
+        return weapons;
+    }
+    
+    public static WeaponDecorator getWeapon(int index, WeaponDecorator wrapper){
+        switch(index){
+            case 0:
+                return new Knife(wrapper);
+            case 1:
+                return new Axe(wrapper);
+            case 2:
+                return new Bow(wrapper);
+            case 3:
+                return new Sword(wrapper);
+            case 4:
+                return new Armor(wrapper);
+        }
+        return null;
+    }
+    
+    public static WeaponDecorator getWeapon(int index){
         switch(index){
             case 0:
                 return new Knife();
@@ -188,6 +216,8 @@ public class Heroesvsvillains {
                 return new Bow();
             case 3:
                 return new Sword();
+            case 4:
+                return new Armor();
         }
         return null;
     }

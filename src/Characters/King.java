@@ -8,6 +8,8 @@ package Characters;
 import Behaviors.AttackBehavior;
 import Behaviors.WeaponBehavior;
 import Models.CharacterModel;
+import Weapons.WeaponDecorator;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,8 +17,8 @@ import Models.CharacterModel;
  */
 public class King extends CharacterModel{
 
-    public King(AttackBehavior attackBehavior, WeaponBehavior weaponBehavior,boolean isHero) {
-        super(attackBehavior, weaponBehavior,isHero);
+    public King(AttackBehavior attackBehavior, WeaponDecorator weapons,boolean isHero) {
+        super(attackBehavior, weapons,isHero);
     }
     
     @Override

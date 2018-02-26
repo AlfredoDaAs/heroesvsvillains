@@ -6,10 +6,9 @@
 package Attacks;
 
 import Behaviors.AttackBehavior;
-import Behaviors.WeaponBehavior;
 import Characters.Queen;
 import Models.CharacterModel;
-import Weapons.Sword;
+import Weapons.WeaponDecorator;
 
 /**
  *
@@ -18,17 +17,16 @@ import Weapons.Sword;
 public class LilithAttack implements AttackBehavior{
 
     @Override
-    public boolean attack(CharacterModel target, WeaponBehavior weapon) {
+    public boolean attack(CharacterModel target, WeaponDecorator weapons) {
         if(!target.isAlive())
             return true;
         if(target.isHero()){
-            weapon.use();
-            if(target instanceof Queen && target.weaponBehavior instanceof Sword && !(weapon instanceof Sword)){
-                return false;
+            System.out.print(" with " + weapons.getPoints() + " attack points... ");
+            weapons.use();
+            if(target instanceof Queen){
+                return weapons.getPoints() >= target.weapons.getPoints();
             }
-            else{
-                return true;
-            }
+            return true;
         }
         else{
             System.out.println("I wont attack an ally...");

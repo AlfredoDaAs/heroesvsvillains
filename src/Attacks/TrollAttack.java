@@ -18,17 +18,13 @@ import Weapons.*;
 public class TrollAttack implements AttackBehavior{
 
     @Override
-    public boolean attack(CharacterModel target, WeaponBehavior weapon) {
+    public boolean attack(CharacterModel target, WeaponDecorator weapons) {
         if(!target.isAlive())
             return true;
         if(target.isHero()){
-            weapon.use();
-            if((target instanceof Knight && target.weaponBehavior instanceof Axe) || target instanceof Queen){
-                return false;
-            }
-            else{
-                return true;
-            }
+            System.out.print(" with " + weapons.getPoints() + " attack points... ");
+            weapons.use();
+            return weapons.getPoints() >= target.weapons.getPoints();
         }
         else{
             System.out.println("I wont attack an ally...");

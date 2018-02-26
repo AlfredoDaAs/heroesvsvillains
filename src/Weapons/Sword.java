@@ -11,11 +11,20 @@ import Behaviors.WeaponBehavior;
  *
  * @author Bruno
  */
-public class Sword implements WeaponBehavior{
+public class Sword extends WeaponDecorator implements WeaponBehavior{
+    
+    public Sword(){
+        super(4);
+    }
 
+    public Sword(WeaponDecorator wrapper) {
+        super(wrapper,4);
+    }
+    
     @Override
     public void use() {
-        System.out.print(" *Swings sword*");
+        super.use();
+        System.out.print(" *Swings sword* - " + this.WeaponPoints);
     }
     
 }

@@ -7,6 +7,8 @@ package Models;
 
 import Behaviors.*;
 import OPInterfaces.Observer;
+import Weapons.WeaponDecorator;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,12 +18,12 @@ public abstract class CharacterModel implements Observer {
     protected boolean alive;
     protected boolean hero;
     public AttackBehavior attackBehavior;
-    public WeaponBehavior weaponBehavior;
+    public WeaponDecorator weapons;
     public CharacterModel oracleMessage;
 
-    public CharacterModel(AttackBehavior attackBehavior, WeaponBehavior weaponBehavior,boolean isHero) {
+    public CharacterModel(AttackBehavior attackBehavior, WeaponDecorator weapons,boolean isHero) {
         this.attackBehavior = attackBehavior;
-        this.weaponBehavior = weaponBehavior;
+        this.weapons = weapons;
         this.alive = true;
         this.hero = isHero;
     }
@@ -30,10 +32,11 @@ public abstract class CharacterModel implements Observer {
     
     public boolean performAttack(CharacterModel target){
         boolean attackResult = false;
-        attackResult = attackBehavior.attack(target,this.weaponBehavior);
-        if(oracleMessage != null && this.getClass() == oracleMessage.getClass()){
+        
+        attackResult = attackBehavior.attack(target,this.weapons);
+        /*if(oracleMessage != null && this.getClass() == oracleMessage.getClass()){
             attackResult =  false;
-        }
+        }*/
         return attackResult;
     }
 
@@ -53,8 +56,8 @@ public abstract class CharacterModel implements Observer {
         this.attackBehavior = attackBehavior;
     }
 
-    public void setWeaponBehavior(WeaponBehavior weaponBehavior) {
-        this.weaponBehavior = weaponBehavior;
+    public void setWeaponBehavior(WeaponDecorator weapons) {
+        this.weapons = weapons;
     }
 
     public boolean isHero() {

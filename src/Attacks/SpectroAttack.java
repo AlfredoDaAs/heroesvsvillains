@@ -6,33 +6,28 @@
 package Attacks;
 
 import Behaviors.AttackBehavior;
-import Behaviors.WeaponBehavior;
-import Characters.Lilith;
+import Characters.Queen;
 import Models.CharacterModel;
-import Weapons.Sword;
 import Weapons.WeaponDecorator;
 
 /**
  *
- * @author Bruno
+ * @author User
  */
-public class QueenAttack implements AttackBehavior{
+public class SpectroAttack implements AttackBehavior{
 
     @Override
     public boolean attack(CharacterModel target, WeaponDecorator weapons) {
         if(!target.isAlive())
             return true;
-        if(target.isVillain()){
+        if(target.isHero()){
             System.out.print(" with " + weapons.getPoints() + " attack points... ");
             weapons.use();
-            if(target instanceof Lilith){
-                return weapons.getPoints() >= target.weapons.getPoints();
-            }
-            return true;
+            return weapons.getPoints() >= target.weapons.getPoints();
         }
         else{
             System.out.println("I wont attack an ally...");
             return true;
         }
-    }
+    }    
 }

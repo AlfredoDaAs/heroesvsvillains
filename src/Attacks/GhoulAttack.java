@@ -10,6 +10,7 @@ import Behaviors.WeaponBehavior;
 import Characters.*;
 import Models.CharacterModel;
 import Weapons.Bow;
+import Weapons.WeaponDecorator;
 
 /**
  *
@@ -18,22 +19,17 @@ import Weapons.Bow;
 public class GhoulAttack implements AttackBehavior{
 
     @Override
-    public boolean attack(CharacterModel target, WeaponBehavior weapon) {
+    public boolean attack(CharacterModel target, WeaponDecorator weapons) {
         if(!target.isAlive())
             return true;
         if(target.isHero()){
-            weapon.use();
-            if((target instanceof Bishop && !(weapon instanceof Bow)) || target instanceof Queen || target instanceof Knight){
-                return false;
-            }
-            else{
-                return true;
-            }
+            System.out.print(" with " + weapons.getPoints() + " attack points... ");
+            weapons.use();
+            return weapons.getPoints() >= target.weapons.getPoints();
         }
         else{
             System.out.println("I wont attack an ally...");
             return true;
         }
     }
-    
 }

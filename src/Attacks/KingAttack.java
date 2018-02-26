@@ -9,6 +9,7 @@ import Behaviors.AttackBehavior;
 import Behaviors.WeaponBehavior;
 import Characters.Lilith;
 import Models.CharacterModel;
+import Weapons.WeaponDecorator;
 
 /**
  *
@@ -17,12 +18,16 @@ import Models.CharacterModel;
 public class KingAttack implements AttackBehavior{
 
     @Override
-    public boolean attack(CharacterModel target, WeaponBehavior weapon) {
+    public boolean attack(CharacterModel target, WeaponDecorator weapons) {
         if(!target.isAlive())
             return true;
         if(target.isVillain()){
-            weapon.use();
-            return !(target instanceof Lilith);
+            System.out.print(" with " + weapons.getPoints() + " attack points... ");
+            weapons.use();
+            if(target instanceof Lilith){
+                return weapons.getPoints() >= target.weapons.getPoints();
+            }
+            return true;
         }
         else{
             System.out.println("I wont attack an ally...");

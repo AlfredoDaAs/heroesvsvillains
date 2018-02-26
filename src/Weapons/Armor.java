@@ -11,21 +11,18 @@ import Behaviors.WeaponBehavior;
  *
  * @author Bruno
  */
-public class Axe extends WeaponDecorator {
+public class Armor extends WeaponDecorator{
     
-    public Axe(){
-        super(2);
+    public Armor(){
+        super(6);
     }
 
-    public Axe(WeaponDecorator wrapper) {
-        super(wrapper,2);
-
+    public Armor(WeaponDecorator wrapper) {
+        super(wrapper,6);
     }
-
     @Override
     public void use() {
         super.use();
-        System.out.print(" *Swings axe* - " + this.WeaponPoints);
+        System.out.print(" *Blocks target* - " + this.WeaponPoints);
     }
-    
 }

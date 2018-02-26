@@ -15,15 +15,14 @@ import java.util.ArrayList;
  *
  * @author alfre
  */
-public class Troll extends CharacterModel{
-
-    public Troll(AttackBehavior attackBehavior, WeaponDecorator weapons,boolean isHero) {
+public class Warrior extends CharacterModel {
+    
+    public Warrior(AttackBehavior attackBehavior, WeaponDecorator weapons,boolean isHero) {
         super(attackBehavior, weapons,isHero);
     }
 
     @Override
     public String name() {
-        return "Troll";
+        return "Warrior";
     }
-    
 }

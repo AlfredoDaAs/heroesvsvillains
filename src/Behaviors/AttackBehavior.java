@@ -6,11 +6,13 @@
 package Behaviors;
 
 import Models.CharacterModel;
+import Weapons.WeaponDecorator;
+import java.util.ArrayList;
 
 /**
  *
  * @author alfre
  */
 public interface AttackBehavior {
-    public boolean attack(CharacterModel target, WeaponBehavior weapon);
+    public boolean attack(CharacterModel target, WeaponDecorator weapons);
 }
