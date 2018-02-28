@@ -5,7 +5,11 @@
  */
 package Characters;
 
+import Behaviors.AttackBehavior;
+import Behaviors.WeaponBehavior;
 import Models.CharacterModel;
+import Weapons.WeaponDecorator;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,9 +17,12 @@ import Models.CharacterModel;
  */
 public class Ghoul extends CharacterModel{
 
-    @Override
-    public void display() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Ghoul(AttackBehavior attackBehavior, WeaponDecorator weapons,boolean isHero) {
+        super(attackBehavior, weapons,isHero);
     }
     
+    @Override
+    public String name() {
+        return "Ghoul";
+    }
 }

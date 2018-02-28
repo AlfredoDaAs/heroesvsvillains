@@ -5,20 +5,24 @@
  */
 package Characters;
 
+import Behaviors.AttackBehavior;
+import Behaviors.WeaponBehavior;
 import Models.CharacterModel;
+import Weapons.WeaponDecorator;
+import java.util.ArrayList;
 
 /**
  *
  * @author User
  */
 public class King extends CharacterModel{
-    
-    public King() {
+
+    public King(AttackBehavior attackBehavior, WeaponDecorator weapons,boolean isHero) {
+        super(attackBehavior, weapons,isHero);
     }
     
     @Override
-    public void display(){
-        
+    public String name() {
+        return "King";
     }
-    
 }

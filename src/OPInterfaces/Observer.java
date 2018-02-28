@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Behaviors;
+package OPInterfaces;
+
+import Models.CharacterModel;
 
 /**
  *
- * @author alfre
+ * @author User
  */
-public interface WeaponBehavior {
-    public void use();
+public interface Observer {
+    public void update(CharacterModel looser);
 }

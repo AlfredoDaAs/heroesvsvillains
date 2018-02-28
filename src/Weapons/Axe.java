@@ -9,13 +9,23 @@ import Behaviors.WeaponBehavior;
 
 /**
  *
- * @author User
+ * @author Bruno
  */
-public class SwordWeapon implements WeaponBehavior{
+public class Axe extends WeaponDecorator {
+    
+    public Axe(){
+        super(2);
+    }
+
+    public Axe(WeaponDecorator wrapper) {
+        super(wrapper,2);
+
+    }
 
     @Override
     public void use() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        super.use();
+        System.out.print(" *Swings axe* - " + this.WeaponPoints);
     }
     
 }
