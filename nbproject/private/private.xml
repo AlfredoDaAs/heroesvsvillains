@@ -3,11 +3,33 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/alfre/Documents/NetBeansProjects/heroesvsvillains/src/Behaviors/WeaponBehavior.java</file>
             <file>file:/C:/Users/alfre/Documents/NetBeansProjects/heroesvsvillains/src/Behaviors/AttackBehavior.java</file>
             <file>file:/C:/Users/alfre/Documents/NetBeansProjects/heroesvsvillains/src/Characters/King.java</file>
             <file>file:/C:/Users/alfre/Documents/NetBeansProjects/heroesvsvillains/src/Characters/Wizard.java</file>
             <file>file:/C:/Users/alfre/Documents/NetBeansProjects/heroesvsvillains/src/Attacks/NobleAttack.java</file>
+=======
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/heroesvsvillains/src/Attacks/SpectroAttack.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/heroesvsvillains/src/Attacks/LilithAttack.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/heroesvsvillains/src/Weapons/Armor.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/heroesvsvillains/src/Models/CharacterModel.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/heroesvsvillains/src/Attacks/TrollAttack.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/heroesvsvillains/src/Attacks/BishopAttack.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/heroesvsvillains/src/Weapons/Axe.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/heroesvsvillains/src/Weapons/WeaponDecorator.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/heroesvsvillains/src/Weapons/Knife.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/heroesvsvillains/src/heroesvsvillains/Heroesvsvillains.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/heroesvsvillains/src/Weapons/Sword.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/heroesvsvillains/src/Attacks/QueenAttack.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/heroesvsvillains/src/Attacks/WizardAttack.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/heroesvsvillains/src/Weapons/Bow.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/heroesvsvillains/src/Attacks/KingAttack.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/heroesvsvillains/src/Attacks/KnightAttack.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/heroesvsvillains/src/Characters/Bishop.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/heroesvsvillains/src/Attacks/GhoulAttack.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/heroesvsvillains/src/Attacks/WarriorAttack.java</file>
+>>>>>>> f85ce80aad49a691c3bd7e47e92f20120e62ec31
         </group>
     </open-files>
 </project-private>
